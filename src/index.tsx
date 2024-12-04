@@ -32,6 +32,7 @@ export interface CarouselProps extends FlatListProps<{}> {
 }
 
 export const Carousel: React.FC<CarouselProps> = React.forwardRef(({
+  startIndex = 0,
   bounces,
   data,
   itemWidth,
@@ -49,7 +50,7 @@ export const Carousel: React.FC<CarouselProps> = React.forwardRef(({
   paginationBackgroundColor,
   ...props
 }, ref) => {
-  const [currentIndex, setCurrentIndex] = React.useState<number>(0)
+  const [currentIndex, setCurrentIndex] = React.useState<number>(startIndex)
   const [didReachEnd, setDidReachEnd] = React.useState<boolean>(false)
   const slidesRef = React.useRef<FlatList<{}>>(null)
   const scrollX = React.useRef(new Animated.Value(0)).current
@@ -179,7 +180,7 @@ export const Carousel: React.FC<CarouselProps> = React.forwardRef(({
         onEndReached={onEndReacted}
         onEndReachedThreshold={0.5}
         keyExtractor={(_, index) => index.toString()}
-        initialScrollIndex={0}
+        initialScrollIndex={startIndex}
       />
       {pagination && paginationPosition !== 'top' && data?.length > 1 && (
         <Pagination
