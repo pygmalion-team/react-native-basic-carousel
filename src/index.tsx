@@ -14,6 +14,7 @@ import Pagination from './pagination'
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList)
 
 export interface CarouselProps extends FlatListProps<{}> {
+  startIndex: number;
   data: Array<{}>
   renderItem: ListRenderItem<any>
   onSnapToItem?: (item: {}) => void
