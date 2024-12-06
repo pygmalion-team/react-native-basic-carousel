@@ -21,20 +21,21 @@ const Pagination: React.FC<PaginationProps> = ({
   const styles = useStyle()
 
   const renderItems = () => {
-    const dotWidthFunc = () => {
-      if (paginationType === 'circle') {
-        return [8, 10, 8]
-      }
+    // const dotWidthFunc = () => {
+    //   if (paginationType === 'circle') {
+    //     return [8, 10, 8]
+    //   }
 
-      return [20, 35, 20]
-    }
+    //   return [20, 35, 20]
+    // }
     return data.map((_, i) => {
       const inputRange = [(i - 1) * width, i * width, (i + 1) * width]
-      const dotWidth = activeIndex.interpolate({
-        inputRange,
-        outputRange: dotWidthFunc(),
-        extrapolate: 'clamp',
-      })
+      // const dotWidth = activeIndex.interpolate({
+      //   inputRange,
+      //   outputRange: dotWidthFunc(),
+      //   extrapolate: 'clamp',
+      // })
+      const dotWidth = paginationType === 'circle' ? 8 : 20;
       const opacity = activeIndex.interpolate({
         inputRange,
         outputRange: [0.2, 1, 0.2],
@@ -78,7 +79,7 @@ const useStyle = () => {
     },
     dot: {
       borderRadius: 7,
-      marginHorizontal: 2,
+      marginHorizontal: 5,
     },
   })
 
