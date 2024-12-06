@@ -18,7 +18,6 @@ const AnimatedFlatList = Animated.createAnimatedComponent(FlatList)
 // }
 
 export interface CarouselProps extends FlatListProps<{}> {
-  ref: React.RefObject<any>;
   startIndex: number;
   data: Array<{}>
   renderItem: ListRenderItem<any>
