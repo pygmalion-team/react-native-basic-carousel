@@ -13,12 +13,12 @@ import Pagination from './pagination'
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList)
 
-export interface CarouselRef {
-  scrollToIndex: (params: { index: number; animated?: boolean }) => void;
-}
+// export interface CarouselRef {
+//   scrollToIndex: (params: { index: number; animated?: boolean }) => void;
+// }
 
 export interface CarouselProps extends FlatListProps<{}> {
-  ref: React.RefObject<CarouselRef>;
+  ref: React.RefObject<any>;
   startIndex: number;
   data: Array<{}>
   renderItem: ListRenderItem<any>
@@ -38,7 +38,7 @@ export interface CarouselProps extends FlatListProps<{}> {
 }
 
 export const Carousel: React.FC<CarouselProps> = React.forwardRef(({
-  ref: carouselRef,
+  ref,
   startIndex = 0,
   bounces,
   data,
