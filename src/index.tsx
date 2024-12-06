@@ -38,7 +38,6 @@ export interface CarouselProps extends FlatListProps<{}> {
 }
 
 export const Carousel: React.FC<CarouselProps> = React.forwardRef(({
-  ref,
   startIndex = 0,
   bounces,
   data,
@@ -59,7 +58,7 @@ export const Carousel: React.FC<CarouselProps> = React.forwardRef(({
 }, ref) => {
   const [currentIndex, setCurrentIndex] = React.useState<number>(startIndex)
   const [didReachEnd, setDidReachEnd] = React.useState<boolean>(false)
-  const slidesRef = React.useRef(carouselRef)
+  const slidesRef = React.useRef(ref)
   const scrollX = React.useRef(new Animated.Value(0)).current
   const viewabilityConfig = React.useRef({
     viewAreaCoveragePercentThreshold: 70,
