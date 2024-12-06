@@ -17,7 +17,7 @@ export interface CarouselProps extends FlatListProps<{}> {
   startIndex: number;
   data: Array<{}>
   renderItem: ListRenderItem<any>
-  onSnapToItem?: (item: {}) => void
+  onSnapToItem?: (item: any) => void
   itemWidth: number
   bounces?: boolean
   pagination?: boolean
