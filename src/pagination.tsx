@@ -73,9 +73,7 @@ const useStyle = () => {
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
-      height: 15,
-      marginTop: Platform.OS === 'ios' ? 10 : 15,
-      marginBottom: Platform.OS === 'ios' ? 15 : 25,
+      height: 50,
     },
     dot: {
       borderRadius: 7,
